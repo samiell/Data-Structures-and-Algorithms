@@ -6,7 +6,7 @@ public class SinglyLinkedList<E> {
 
     public void push(E element) {
 
-        Node<E> nd = new Node<E>();
+        Node<E> nd = new Node<>();
         nd.setValue(element);
         System.out.println("Adding: " + element);
 
@@ -116,8 +116,6 @@ public class SinglyLinkedList<E> {
         E n = tmp.getValue();
         System.out.println('\n' + "" + n);
     }
-
-
 }
 
 class Node<E> implements Comparable<E> {

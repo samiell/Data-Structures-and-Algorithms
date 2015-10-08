@@ -48,17 +48,11 @@ public class Queue<E> {
     }
 
     public boolean isEmpty() {
-        if (size == 0)
-            return true;
-        else
-            return false;
+        return size == 0;
     }
 
     public boolean isFull() {
-        if (size == length)
-            return true;
-        else
-            return false;
+        return size == length;
     }
 
     public E[] toArray() {

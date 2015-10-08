@@ -2,7 +2,7 @@ package org.meltwater.java.datastructures;
 
 public class BetterArray {
 
-    private static final int NO_ELEMENT_FOUND = -1;                                       //Big 0 -->
+    private static final int NO_ELEMENT_FOUND = -1;
     private final int DEFAULT_SIZE = 10;
     private int array[];
     private int size;
@@ -18,15 +18,17 @@ public class BetterArray {
     }
 
     public int index(int element) {
-        for (int i = 0; i < array.length; i++) {
+        int size = array.length;
+        for (int i = 0; i < size; i++) {
             if (array[i] == element) return i;
         }
         return NO_ELEMENT_FOUND;
     }
 
     public boolean isEmpty() {
-        if (size() > 0) return true;
-        return false;
+        //if (size() > 0) return true;
+        return size() == 0;
+        //return false;
     } //empty
 
     public int get(int index) {
@@ -34,6 +36,9 @@ public class BetterArray {
     }
 
     // add method
+     /*
+    * @Add - This method lets you add an element
+    */
     public void add(int element) {
         if (size == array.length) {
             int[] newArray = new int[size + 1];
@@ -44,10 +49,13 @@ public class BetterArray {
     }
 
     //insert method
+     /*
+    * @Insert - This method lets you insert an element
+    */
     public void insert(int index, int element) {
 
         if (index < 0) {
-            System.out.println("Please use positive index");
+            System.out.println("Please enter a positive index position ");
             return;
         }
 
@@ -57,7 +65,6 @@ public class BetterArray {
                 array[i] = array[i - 1];
             }
             array[index] = element;
-//            size++;
             return;
         }
         if (index == size) {
@@ -76,14 +83,23 @@ public class BetterArray {
         }
     }
 
+    /*
+    * @Append - This method lets you append an element
+    */
     public void append(int element) {
         insert(array.length - 1, element);
     }
 
+    /*
+   * @Shift - This method lets you shift an element
+   */
     public void shift(int element) {
         insert(0, element);
     }
 
+    /*
+   * @Contain - This method lets you verify if an element is contained in the array
+   */
     public boolean contains(int element) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == element) return true;
@@ -91,6 +107,9 @@ public class BetterArray {
         return false;
     }
 
+    /*
+   * @Remove - This method lets you remove an element
+   */
     public void remove(int index) {
         if (index < 0 || index > size - 1) {
             System.out.println("Index not found!");
